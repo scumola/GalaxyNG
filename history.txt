@@ -1,0 +1,605 @@
+# $Id: history.txt,v 1.31 2005/01/23 14:05:50 christhecat Exp $
+
+Release 6.4.8: January 2005
+o By Ken Weinert (madcoder42)
+  + finished work on Pax Galactica, allowing GM to enforce peace
+    at the start of the game for a set number of turns
+o By Ken Weinert (madcoder42) and Chris Shaffer (christhecat)
+  + added web submission of orders and report requests
+  + added feature to allow GM to specify homeworld coordinates
+o By Chris Shaffer (christhecat)
+  + modified GalaxyNG home page, which does not list individual
+    games anymore, as it was too difficult to keep up-to-date
+o By Ken Weinert (madcoder42) and Jeff Frasca (jafrasca)
+  + cleaned up mail headers
+
+Release 6.4.7: November 2004
+o By Ken Weinert (madcoder42)
+  + enabled compressed reports from a report request (it already
+    worked from normal turns)
+  + added code to include additional parameters to sendmail in order
+    to "shape" the From line in the email so it looks like it comes
+    from the server - this is especially useful for people with hosted
+    sites.
+  + changed a couple of emails so they came from the server instead of
+    the GM
+  + changed message so that race names specified incorrectly can be
+    distinguished from badly formed email (1051567)
+  + fixed bug that player's ships didn't get removed when a player was
+    eliminated by the DropDead process (991269)
+  + fix for bug 1051572 and 1051560 - invalid missing orders report
+    going to GM and due time creeping forward by one interval every turn
+o By Chris Shaffer (christhecat)
+  + standardized subject lines on email sent by server
+  + updated server and player manuals
+  + revised installation files to make cleaner examples (e.g. procmailrc)
+  + added guides and example reports to web site
+
+Release 6.4.6: February 2004
+o By Chris Shaffer (christhecat) and Bogdan Mincu (mincub)
+  + major revision of GalaxyNG web site
+o By Chris Shaffer (christhecat)
+  + updates to manuals, particularly to support changes listed
+    below
+  + updated text in ARE messages to players
+  + modified sample galaxyngrc, procmail, and other files created
+    during installation, particularly to support changes listed
+    below
+  + modified text of the mailing attached to reports and other
+    items sent to players
+o By Ken Weinert (madcoder42)
+  + added the -due command to email players who haven't yet sent 
+    in orders. (#889054)
+  + removed upper casing of game name in report file (#886895)
+  + changed "address" in option names to "anonymous" (#889198)
+  + ensured ships with cargo space and no drive don't get sent on
+    routes (#860007)
+  + changed all occurances of "nation" to "race" to be consistent
+    in all code and documentation. One side effect is that this 
+    engine can't be used with existing templates (.glx files) unless
+    you edit it to change "nation_spacing" to "race_spacing"
+  + changed the relay command so it will stop at a #END line
+    added the ability to relay to everyone in the game by using the
+    game name as the destination
+  + added an optional turn number to the score command (#891475)
+  + added a PaxGalactica - GM can specify the number of turns that
+    Races won't be able to declare war on each other
+  + added a new kind of map - "public". it's like location, but
+    without colour coding
+  + fixed bug where extra turn report file was getting created with
+    the wrong name (#892931)
+  + added code to replace the sending player's password with '*'
+    characters in relayed messages.
+
+Release 6.4.5: January 2004
+o By Ken Weinert (madcoder42)
+  + changed CMD_create to load the config file to fix the problem
+    of not finding fonts during initial map creation in this phase
+  + added the -influence command to generate influence maps without
+    running a turn.
+  + changed the method of allocating memory to reduce the impact of
+    map generation.
+  + fixed an issue with having more players than colors defined. We
+    can now comfortably fit 80 players on these types of maps. More
+    than that and the names will run off the right side.
+  + XML reporting temporarily turned off as the C command would cause
+    TXT reports to be not be created and copies of orders were lost
+o By Chris Shaffer (christhecat)
+  + Lots of minor updates to the manuals and web site.
+  + Modified files created by install.sh script.  Better documentation
+    and examples for procmail and crontab.
+    
+Release 6.4.4: January 2004
+o By Ken Weinert (madcoder42)
+  + added fontpath variable to the rc file to eliminate dependency on
+    the environment variable
+  + restored generating an influence map on turn 0 as the main 
+    impediment was the lack of an environment variable
+
+Release 6-4-3: January 2004
+o By Ken Weinert (madcoder42)
+  + added env variable GNG_LOG_LEVEL to dynamically change the 
+    log level - this replaces hard coded loglevels in the code
+  + changed to not output map on turn 0 or game creation
+o By Chris Shaffer (christhecat)
+  + ARE is documented in the server manual.
+  + ARE makefile updated.  NG/makefile now executes ARE
+    makefile.
+  + ARE procmailrc examples integrated into the procmailrc
+    example created by install.sh
+
+Release 6-4-2: December 2003
+o By Ken Weinert (madcoder42)
+  + Updated version information
+  + Made change to ensure the "to" field in the envelope
+    is always valid
+  + Game creation file now correctly creates all sub-
+    directories.
+o By Chris Shaffer (christhecat)
+  + Updates to server manual
+  + Bugfixes and updated to galaxyngrc and procmailrc
+    generated by install.sh
+    
+Release 6-4-1: December 2003
+o By Chris Shaffer (christhecat)
+  + Bugfixes.
+
+Release 6-4-0: December 2003
+o By Chris Shaffer (christhecat)
+  + Rewrote all manuals, FAQs and help documents.  Major
+    changes to /NG/Doc/.  Removed /WWW/.  Sent Tiger score
+    information to Hall of Fame maintainer.
+  + Updated makefile, which no longer creates the Manuals.
+    GMs should point to http://galaxyng.sourceforge.net/
+    now, rather than hosting the manuals and FAQ and such
+    locally.
+
+Release 6-3-0: September 2003
+o By Ken Weinert (madcoder42)
+  + both text and xml reports are sent on turn 0
+  + new option: TXTReport to turn them off if necessary
+  + now forecasts are returned in XML format if that option
+    (XMLReport) has been enabled
+  + further work on influence mapping. Works better, slower 
+    than it should be, gradation of influence not working
+    correctly.
+  + XML report has been brought up to current standards - note
+    that this is *not* the interchange level with GalaxyExplorer.
+    That goal was deemed to be proceeding too slowly (by 
+    both sides) and so we've temporarily delayed that effort
+    and will compromise on an exchange dtd instead of 
+    attempting to have all engines put out the same dtd.
+
+Release 6-2: July 2003
+o By Ken Weinert (madcoder42)
+  + fixed bug that could cause the create process to hang
+  + added code to ensure each planet is in a unique location
+    this also accounts for the fact that planet coords are
+    only kept to 2 decimal places
+  + recommend that, for the moment, the .png option is not
+    used. I'm rewriting that code and it isn't stable - it
+    might not even compile.
+
+Release 6-1a: April 2003
+o By Ken Weinert (madcoder42)
+  + Added an option to generate a .png file when the turn is 
+    run. This is for GM use only as it shows all planets. It 
+    will probably be most useful when first setting up a game
+    so the GM can get a visual indication of how things go 
+    together. It could also be useful when showing the history
+    of the game.
+
+Release 6-1: July 2002
+o By Steve Webb (scum-o)
+  + Added gnuplot output
+  + Added some command-line fixes to commands that weren't very
+    well documented.
+  + Fixed the 'fleet recall' bug.
+
+Release 6-0: May 2002
+o By FS (gumpu)
+  + Code is GPLed
+
+Release 5-1: March 2002
+o By FS
+  + the galaxyng executable is stripped before it is installed.
+  + Added gameoptions pactch by CB
+ 
+Release 5-0g: March 2001
+o By FS
+  + Fixed a bug in the battle code that caused ships that were 
+    destroyed to fire one more shot.
+  + Added a framework for a new version of WOPR based on the 
+    galaxyng source code (this is beta code).
+  + Added a source file for globals.
+  + Fixed a bug that caused the engine to complain about the order
+    L 1 COL 1 AMOUT 1.1
+    on a group with shiptype 1 0 0 0 1
+    This was again due to a:
+      return expression;
+    which screws up a subsequent compare statment.
+    it was solved by changing it to
+      double res;
+      res = expression;
+      return res;
+    see also the comments at Version 2.1g    6-Oct-1997
+  + Added house_rules.txt in Doc/
+  + Fixed a bug in ARE that allowed twice as many players to join
+    a game than was specified. 
+  + -players switch also shows which players are inactive.
+  + Using mmencode and zip to send out compressed reports.
+  + updated the server manual.
+  + added support for team games  (Tiger)
+    team field in the player structure
+    reportTeam() to generate a report for a team captian.
+  + Fixed a bug that caused the .galaxyngrc file to be ignored when
+    a copy of a report was generated.
+  + added -teaminfo command for team game support.
+
+Release 5-0: Aug 2000
+o By FS
+  + Changed the battle algorithm. The attacking ships are now selected
+    randomly from all the ships that not fired their guns yet.
+  + -score shows time it was created.
+  + added plot.pl by Steve Webb (steve@badcheese.com) to Tools/
+
+Release 4-4b: Aug 2000
+o By FS
+  + The default production of home planet is now DRIVE.
+
+Release 4-4a: July 2000
+o By FS
+  + Fixed a bug that caused a wrong version of the highscore list
+    to be included in a requested copy of a turn report.
+
+Release 4-4: June 2000
+o By FS
+  + The -hall command reported dead players, this is fixed.
+  + Fixed spellings mistakes in ARE.
+  + Fixed bug in ARE that let players select planets above
+    the limit set by the GM.
+  + Enables XML reports.
+
+Release 4-3a: May 2000
+o By FS
+  + Fixed the bug that caused the number of planets, ind, and pop to
+    be zero in the nation station section in turn report 0
+  + Fixed a bug in the -mail0 command, that created file names that
+    started with /tmp\
+  + Fixed a bug in the bombPlanet code that cause planets on rare
+    occasions to have a negative industry. 
+
+Release 4-3:  March 2000
+o By FS:
+  + Dumbed-down all makefiles to make them work with less
+    featurefull versions of make.
+  + Added a "toall" command that creates a mail header that can 
+    be used to mail all players in a game a message.
+  + Used checker to hunt down memory leaks and illegal memory access.
+    (CMD_dump and CMD_run work now without violations).
+  + Added bug fixes to report_xml by Byron Ellacott.
+  + Created a number of function to hide OS dependencies:
+    GOS_fopen(), GOS_mkdir(), GOS_delete(), GOS_copy()
+  + Integrated the patches provided by Martijn van der Kooij to make the
+    code compile under WIN32.
+
+Release 4-2patched:  December 1999
+o Fixed bug in the code that handles turn report copies requests.
+
+Release 4-2:  December 1999
+o By FS:
+  + Fixed the newly introduced technology bug, which cause ships to
+    have higher tech levels than expected.
+  + Updated ARE. Players can now enroll in a game and at the same time
+    specify the sizes of their home planets.
+  + A report request with the subject "report" will retrieve the most
+    recent report. It is no longer necessary specify the turn number.
+
+Release 4-1:  December 1999
+o By FS:
+  + There is a now a check on the length of names.
+  + The L order now recognized the keyword AMOUNT <amount>, which
+    can be used to specify the amount of cargo to be uploaded.
+  + mistake() now works like printf().
+  + Fixed a production bug. If a planet had slightly too few materials
+    to produce a ship, the ship was still produced, and negative amount
+    of materials showed up.
+  + Split the producephase function in several parts.
+  + Spell-checked install.sh, README.
+  + Added -hall command, for automatic creation of Hall of Fame
+    data.
+  + Added '=' order with which players can set their real name.
+    (Used for the Hall of Fame).
+  + Removed the call to Create_Center_Planet() in createGame().
+  + Remove hardcoded use of "Game/" in install.sh
+  + Added -template function, which creates a documented template 
+    .glx file.
+  + Added key SaveReportCopy to .galaxyngrc file. When used a
+    copy of each turn report is saved in reports/
+  + Added key starttime to .galaxyngrc file. It defines when
+    a game is supposed to run. It is used for a sanity check to
+    protect against cron errors.
+
+Release 4-0:  November 1999
+o By FS:
+  + Added an UPGRADE file that tell how to upgrade existing games.
+  + Added mail relay function, for in-game anonymous email.
+  + Engine keeps track of how much ship mass is produced and loss
+    and gives a short report about it to the players.
+  + If players do not send in orders for turn 1, they are removed.
+  + Modified run_game, it can now also be used to re-run a turn.
+  + Added a rule to the example .procmailrc to filter the server
+    respone to an email with orders.  This prevents an infinite
+    loop, when the GM sends orders from the same account as the 
+    server runs on.
+  + Elements on the map are printed in the following order:
+    *, o, +, ., -    So if two elements are printed on
+    the same spot the last one in  the list is the one that
+    is displayed.
+  + Turn 0 does no longer include the list of addresses of
+    the other players.... as they are all set to anonymous anyhow.
+  + $GALAXYNGHOME or $HOME are used to determine the home
+    directory of all data files.
+  + The email address of the GM and the command used to send
+    the turn reports are read from a configuration file
+    .galaxyngrc
+    Added an example configuration file in GalaxyNG/Doc
+  + The specifications for a new game are now read from a file.
+    After a game is created a map is printed to stdout.
+    Added an example specification file in GalaxyNG/Doc
+  + reports are directly send from the engine... saves another
+    script file. Saves several megabytes of disk space,
+    which used to be needed to store all the reports before they
+    were send. Each game, even after many turns requires only
+    1 - 2 Mbytes.
+  + galaxyng -check reads the orders directly from stdin. Saves
+    a script file.
+  + Cleaned up ARE. Now used stdin to read the incomming email.
+    Saves having to copy the mail to a file first.
+  + added a struct game, which holds all the defaults for a game.
+    This gets rid of a lot of global variables.  Code should be
+    easier to read and maintain now.
+  + Added a runProcmail.sh script for people whos system does not
+    allow direct invocation of procmail on incomming email.
+  + Cleaned-up the source code, added documentation to a number
+    of functions.
+  + Most strings are now dynamically allocated, prevents many
+    buffer overflow errors.
+  + Fixed a syntax error in run_game.sh, this showed up in a debian
+    system.
+  + Added a portable number generator to util.c.  The engine should
+    now give the same results on most platforms.
+  + replaces all occurences of  rand() % "range" with frand3(range).
+  + The seeds of the random number generator (a table of unsigned
+    integers) are saved to the end of the turn data file.  They are
+    read before the start of a turn. 
+    This way the random number used during each turn are different,
+    but it is still possible to rerun all turns and get the same
+    outcome at the end.
+  + Added a selftest function.  For now this tests the random number 
+    generator. But it should develop into a function that does an
+    extensive diagnostic of all functions.
+  + fixed 3 security holes.
+o By KW:
+  + Added support for xml turn reports.
+  + The order parser now recognizes cases parameters have
+    a negative value and reports this as an error.
+
+Release 3-8
+o By FS:
+  Fixed the install.sh script.  It did not conform to the
+  bash syntax rules. Lots of missing ";"
+  For some odd reason it did run on a slackware system. However 
+  it did not run on a Debian system.
+o Solved a bug in process.c.  The send command allowed a negative
+  number of ships to be send to a planet.
+o removed references to "cequal" from the unpackorders.tcl program
+  so that it can run under plain tcl.
+o Improved the entry for the V command in the manual
+  Added documentation for the O BattleProtocol and O MachineReport
+o Added a section on the Battle Protocol.
+
+Release 3-7b (April 1999)
+o By FS:
+  make install   now checks if the configuration files it creates
+  already exist. If they do the new files are created under the name
+  <file name>.new.  This to ease upgrading existing version of galaxy.
+o Fixed a bug in the battle code. A shuffle routine to shuffle the players
+  before a battle starts used the lower few bit of the random number
+  generator for the suffle process. This resulted in non-random shuffling.
+o By CB: 
+  Added report version, and galaxy size.
+  Groups record in battle now almost the same that in "normal situations"
+o When a new game is created, the machine report option is switched on
+  by default.
+
+Release 3-7  (April 1999)
+o By CB:  Changes to the machine report.
+     Corrected a bug in number of uninhabited planets
+     Replaced semi-colon delimitor with space (native separator in tcl/tk)
+     Section header : Added a space before the "greater" sign, thus last
+     record is no longer "polluted".
+     Try to get a standard form for header of each section :
+     <section-name(only one word) name(if any) number-of-elements >
+     Try to get a (poor) standard form in groups record :
+     each alien group begin with a 0 (for his number)
+     Section format (groups, battles...) is now :
+     <"section name" "battle or location name" quantity >
+     Messages section is now :
+     <messages "global or personnal" quantity >
+
+Release 3-6,  
+o Orders are logged in log/orders_processed.txt
+
+Release 3-5,  Jan 1999
+
+o It is no longer allowed to upgrade ships at other nations planets.
+o Log files are now stored, per game, in a directory called log/ (If
+  you don't have this directory create one!  or run install.sh)
+o The checking of orders is not logged any more (procmail keeps a
+  log of when orders came in).
+o It should now be possible to run more than one game at the same
+  time.  So you can start 5 games and let them all run at 23:00 on
+  monday and wed and friday.  All temporary files are unique, and
+  should therefore no longer generate conflicts.
+
+Release 3-4
+
+o Solved a bug in the battle code. 
+  It affected battles with more than 2 parties.
+
+  The battle algorithm worked as follows:
+
+  while "there are groups that have not shot" do
+  {
+    select the group that will attack 
+    randomly select one of the enemies of the owner of the attacking group
+    randomly select one of the groups of this enemy
+    fire on that group
+  } 
+
+  In this each enemy has an equal change of being chosen.
+  This produces some counter intuitive results.
+
+  For instance, 
+  Players A and B attack player C.
+  Player A sends 100 probes.
+  Player B send a big gun.
+  Then during the battle the big gun has still a 50% chance of being hit.
+
+  Hence the code that selects the enemy
+  batstat        *selectTargetSide(batstat *attSide)
+
+  now randomly selects an emeny based on the number of ships each
+  enemy has left.
+
+  So in the above case Player A has a 100 / 101 chance of being
+  selected.  Player B has a 1 / 101 chance of being selected.
+
+o The G+ reports now correctly show if a group was in
+  or out of battle.
+o The G+ report fleet sections now correctly shows the number
+  of groups in a fleet.
+
+Release 3-3b
+
+o The seed of the random number generator is now randomized
+  (using time()).  This to avoid that the first battle will
+  follow the same pattern each time.
+
+Release 3-3
+
+o Fixed a bug that prevented to break of the last ship of a group.
+o Added battle protocol.
+o Added compression support
+  That is the option COMPRESS works now :)
+o Ran all source code through the indent program, the formatting
+  of all code is now the same and should be more readable.
+
+Release-3-2          Nov-1998      
+
+o Added a section to the forecast that lists the status of the nation.
+o Modified the code to produce G+ compatible reports.
+  Players can switch it on with  O GPLUS
+o In orders the planet number can be used to specify a destination
+  i.e  S 50 #20      ; planet with '20' as name in turn 0
+o Solved a bug that some orders to be missed because the
+  last line of the order "#END" did not contain a '\n'
+o Included Tommy's circular galaxy construction.
+o Included Christophe's MachineReport code.
+o Removed the randomize home planet feature... there is again a
+  relation between the home planet name and nation name.
+o Changed the removal of dead players rule.  If the turn number < 10
+  and a player has been idle for ORDERGAP1 turns the player is
+  removed. All his planets are reset to 0, and groups are destroyed.
+  If the turn number >= 10, and a player has been idle for ORDERGAP2
+  turns the player is removed but all the nation's planets and groups
+  will continue to exist.
+o If no turn number if given for the options -address, -planets, or
+  -password, the current turn is used.
+o Fixed a bug in the incomming section of the G+ report...
+  planets are listed by their number.
+
+*** by CB
+
+o added h command to halt a group and let it return to
+  the planet of origin.  
+o added a fleetspeed function in util.c
+
+*** by FS
+
+o added the -nodrop  option.  This will turn off the code
+  that removes idle players
+o added the commands -sidea and -sideb. These list the number of idle
+  turns of the even and uneven numbered players.  (For the tiger
+  project).
+o Fixed a bug in the incomming groups section.
+o In the groups section (G+) if a ships travels to an unidentified
+  planet the planet is listed as #<number>
+o In the fleet section (G+) if a fleet travels to an unidentified
+  planet the planet is listed as #<number>
+o Changes the code for the function isunidentified() Previously all
+  planets that had an owner were listed as unidentified...  now
+  planets the player can see or that are owned by the player are
+  excluded.
+o Added graphscore.tcl -- this creates graphs for all players that can
+  be used for a WWW site.
+o galaxyng -create, and the install script now create the directory
+  statistics and don't create nreports anymore.
+o Cargo technology now only needs 2500 industry points to increase by
+  1 unit.  To emphasize the economic aspects of galaxy.
+o Added a section to the manual on the number of turns a player is
+  allowed to miss and what happens else.
+
+Release-3-1      15-April-1998
+
+o Made the output of -score -html option compatible with all
+  browsers.
+o Fixed a 'move phase' bug.  Ships that are within 0.01 ly now are
+  considered to have arrived at the planet.  This to avoid funny
+  'distance left: 0.00' values in the turn report.
+
+Release-3-0     13-April-1998
+
+o Put the code under CVS version management.
+o Added documentation on how to use and configure the program
+o Added some syntax check to the  D  (design ship) order.
+o Randomized the home planet names. There is now no longer a relation
+  between the nation name and home planet numbers.
+
+Version 2.1i    13-Dec-1997
+
+o Bug fix in the intercept code.  Bug fix thanks to Tommy.
+
+Version 2.1h    8-Dec-1997
+
+o Bug fix in the joinphase code, ships that had different
+  flags were still being joined.  Bug fix thanks to Tommy.
+
+Version 2.1g    6-Oct-1997
+
+(1) Made changes to all code in util.c that has the format
+
+ double <name>()
+ {
+   return <expression>;
+ }
+
+changed it to
+
+ double <name>()
+ {
+   double res;
+   res = <expression>;
+   return res;
+ }
+
+to circumvent some curious intel gcc bug.
+ 
+Version 2.1f    25-July-1997
+
+(1) Changed the log levels, the log file should be much smaller now.
+(2) Highscore list now includes the address of players that do no
+    play anonymous.
+
+Version 2.1e    25-June-1997
+
+Updated the create game code: 
+(1) It now generates a random password for each player.  
+(2) The random number generator is initialized with the return value of time().
+(3) Fixed the bug that caused the score list of turn 1 to be listed as
+    that of turn 0.
+
+Version 2.1d    
+
+Inserted a bug fix by Tommy, that prevents players to create feets
+that have a number as name.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+
+# $Id: README,v 1.4 2005/01/23 13:43:49 christhecat Exp $
+#
+
+You should probably point at the GalaxyNG home page for documentation.
+
+http://galaxyng.sourceforge.net/
+
+If you want to create a local mirror, simply copy these files into an
+appropriate directory on your web server.  Edit menu.php and footer.php
+as appropriate.  PHP3+ required.  This option is NOT recommended.
+

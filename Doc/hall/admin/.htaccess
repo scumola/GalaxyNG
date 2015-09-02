@@ -1,0 +1,6 @@
+AuthUserFile /home/groups/g/ga/galaxyng/.htpasswd
+AuthGroupfile /dev/null
+AuthName EnterPassword
+AuthType Basic
+
+require user galaxyng

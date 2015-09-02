@@ -1,0 +1,189 @@
+/* $Id: main.css,v 1.17 2004/04/04 23:57:12 christhecat Exp $ */
+
+body { 
+  margin-top: .25em;
+  margin-bottom: 1em;
+  margin-left: .5em;
+  margin-right: .5em;
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  color: #99CC80;
+  background-color: #000000;
+  background-image: url("lightstars.png")
+}
+
+a:link { 
+  color: #6666FF; 
+}
+a:visited {
+  color: #6699FF;
+}
+a:active {
+  color: #AAAAFF;
+}
+
+p, li {
+  margin-left: 1em
+}
+
+b, strong, i, em, cite, var, tt, code, kbd, samp, img { 
+ display: inline
+}
+
+ul {
+  display: block
+}
+
+b, strong { 
+  font-variant: small-caps;
+  font-weight: bold
+}
+
+i, cite, em, var, address, blockquote {
+  font-style: italic
+}
+
+pre, tt, kbd, samp, code {
+  font-family: monospace
+}
+
+code {
+  white-space: pre
+}
+
+pre { 
+  white-space: pre;
+  margin-left: 3em
+}
+
+address { 
+  font-family: monospace;
+  text-align: left;
+  margin-bottom: .5em
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+  margin-top: .5em
+}
+
+h1 {
+  font-size: 160%;
+  margin-bottom: .5em
+}
+
+h2 {
+  font-size: 140%;
+  font-style: italic
+}
+
+h3 {
+  font-size: 120%
+}
+
+img {
+	border: 0
+}
+
+.menu {
+	margin: 0;
+	font-size: 12px
+}
+
+.bold {
+	font-weight: bold
+}
+
+.wide {
+	margin: 0;
+	width: 100%
+}
+
+.right {
+	text-align: right
+}
+
+.center {
+	text-align: center
+}
+
+.left {
+	text-align: left
+}
+
+.note {
+	font-style: italic;
+	font-size: 80%
+}
+
+.nomargin {
+	margin: 0
+}
+
+.hall {
+	padding-right: 10px;
+	padding-left: 10px
+}	
+
+.hallhead {
+	padding-right: 10px;
+	padding-left: 10px;
+	font-weight: bold;
+	vertical-align: bottom
+}
+
+.hallheadright {
+	padding-right: 10px;
+	padding-left: 10px;
+	vertical-align: bottom;
+	font-weight: bold;
+	text-align: right
+}				
+
+.hallheadleft {
+	padding-right: 10px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+	vertical-align: bottom;
+	font-weight: bold;
+	text-align: left
+}		
+
+.hallcenter {
+	padding-right: 10px;
+	padding-left: 10px;
+	text-align: center
+}	
+
+.hallright {
+	padding-right: 10px;
+	padding-left: 10px;
+	text-align: right
+}			
+
+.halltopright {
+	padding-right: 10px;
+	padding-left: 10px;
+	vertical-align: top;
+	text-align: right
+}		
+
+.hallwin {
+	color: yellow	
+}
+
+A.hallwin:visited {
+	color: yellow
+}
+
+A.hallwin:link {
+	color: yellow
+}
+
+A.hallwin:active {
+	color: yellow
+}
+
+li.nobullet {
+	list-style-type: none
+}

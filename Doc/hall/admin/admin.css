@@ -1,0 +1,27 @@
+/* $Id: admin.css,v 1.1 2004/03/15 01:08:41 christhecat Exp $ */
+
+.right {
+	text-align: right
+}
+.id {
+	border-style: solid;
+	border-width: 1px
+}
+
+.main {
+	vertical-align: top;
+	border-style: solid;
+	border-width: 1px
+}
+.score {
+	font-family: courier, fixed, monospace;
+	border-style: solid;
+	text-align: right;
+	border-width: 1px
+}
+.score2 {
+	font-family: courier, fixed, monospace;
+	border-style: solid;
+	text-align: left;
+	border-width: 1px
+}	

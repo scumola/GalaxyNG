@@ -1,0 +1,41 @@
+#!/bin/bash
+
+## $Id: mail_report.header,v 1.1 2002/04/08 18:20:20 gumpu Exp $
+##
+## This is a script that uses SENDMAIL to mail reports out.  This is done
+## to provide maximal flexability.  Your machine and version of SENDMAIL
+## may require to you tweak the settings below.  Information regarding this
+## will be provided as it becomes available.
+##
+##
+##
+## Arguments to mail_reports:
+##
+## $1 - Name of the game to mail reports for.
+## $2 - Turn Number
+## $3 - Race Name
+## $4 - Address
+## $5 - Type   ( M == machine  A == plain text 
+##               m == machine compressed, a == plain text compressed)
+##
+
+## Settings!  Don't overlook!
+#
+# Option to include notice file for a particular turn:
+#
+# Put a file called "Game.1.notice" in the directory where this
+# script is executed.  NOTE that "Game" must be capitalized.
+#
+
+# Your sendmail command and the appropriate flags.
+#  -ba = ARPANET header parsing
+#  -t  = Parse To: header
+#  -oi = Immediate processing.  This could be changed to queue or
+#        background depending on how you want to do things.  
+
+
+
+
+
+
+

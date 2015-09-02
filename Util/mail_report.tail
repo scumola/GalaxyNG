@@ -1,0 +1,99 @@
+NOTICEDIR=notices
+BULLETIN=$NOTICEDIR/global.bulletin
+INFO=$NOTICEDIR/$1.info
+NOTICE=$NOTICEDIR/$1.$2.notice
+GNOTICE=$NOTICEDIR/$2.notice
+TEMPFILE=$TEMPDIR/g$1$2.txt
+TEMPFILE2=$TEMPDIR/g$1-$2-mtemp2
+ZTEMPFILE=$TEMPDIR/g$1-$2-mtemp.zip
+
+case $5 in
+  ( A | a ) { SUBJECT="Galaxy Game $1 Turn $2 Report for $3"; } ;;
+  ( M | m ) { SUBJECT="Galaxy Game $1 Turn $2 Machine Report for $3"; } ;;
+  ( X | x ) { SUBJECT="Galaxy Game $1 Turn $2 XML Report for $3"; } ;;
+esac
+
+BTITLE="Bulletins for Galaxy Game $1 Turn $2"
+
+# Report comes through stdin.  Think of it as a birth canal.
+
+rm -f $TEMPFILE
+
+echo \
+"To:" $4 "("$3")
+From:  " $FROM " (GalaxyNG Engine)
+Reply-To:" $REPLY_TO "
+Sender:" $SENDER "
+Subject:" $SUBJECT "
+
+
+" > $TEMPFILE2
+
+		
+echo $BTITLE > $TEMPFILE
+echo "" >> $TEMPFILE
+
+if test ! "$5" = M; then
+  if test -r $NOTICE; then echo $1" NOTICE
+  " >>$TEMPFILE; \
+     cat $NOTICE >> $TEMPFILE; \
+     echo "
+  " >> $TEMPFILE;
+  fi
+  if test -r $GNOTICE; then  \
+     cat $GNOTICE >> $TEMPFILE; \
+     echo "
+  " >> $TEMPFILE;
+  fi
+  if test -r $BULLETIN; then echo "NOTES
+  " >>$TEMPFILE; \
+     cat $BULLETIN >> $TEMPFILE; \
+     echo "
+  " >> $TEMPFILE;
+  fi
+  if test -r $INFO; then echo $1" INFO
+  " >>$TEMPFILE; \
+     cat $INFO >> $TEMPFILE; \
+     echo "
+  " >> $TEMPFILE;
+  fi
+fi
+
+if test "$5" = m -o "$5" = a -o "$5" = x;  
+then
+{
+    cat - >> $TEMPFILE
+    zip -j $ZTEMPFILE $TEMPFILE 
+    rm -f $TEMPFILE
+    uuencode $ZTEMPFILE report.zip > $TEMPFILE 
+    cat $TEMPFILE2 $TEMPFILE | $SENDMAIL 
+} 
+else 
+{
+    cat $TEMPFILE2 $TEMPFILE - | $SENDMAIL 
+}
+fi
+
+rm -f $TEMPFILE $TEMPFILE2 $ZTEMPFILE  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

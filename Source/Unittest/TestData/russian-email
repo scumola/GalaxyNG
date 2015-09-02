@@ -1,0 +1,69 @@
+From SD@topol.udm.net Wed Feb 04 00:33:19 2004
+Return-Path: <SD@topol.udm.net>
+Delivered-To: cat-galaxy@gesserit.net
+Received: (qmail 5541 invoked from network); 4 Feb 2004 07:33:19 -0000
+Received: from unknown (HELO lota.izhcom.ru) (213.24.0.2)
+  by 0 with SMTP; 4 Feb 2004 07:33:19 -0000
+Received: from meta.izhcom.ru (root@meta.izhcom.ru [213.24.0.9])
+	by lota.izhcom.ru (8.12.10/8.12.10/Izhcom-V1.1m) with ESMTP id i147XGTX030113
+	for <cat-galaxy@gesserit.net>; Wed, 4 Feb 2004 11:33:16 +0400 (SAMT)
+X-Envelope-To: <cat-galaxy@gesserit.net>
+X-Envelope-From: SD@topol.udm.net
+X-Receive-Date: Wed, 4 Feb 2004 11:33:16 +0400 (SAMT)
+Received: from WinProxy.anywhere (D086.dialup.udm.net [213.59.63.86])
+	by meta.izhcom.ru (8.12.6/8.12.6) with SMTP id i147WZlm034521
+	for <cat-galaxy@gesserit.net>; Wed, 4 Feb 2004 11:33:06 +0400 (SAMT)
+	(envelope-from SD@topol.udm.net)
+Received: from 192.168.0.138 by 192.168.0.95 (WinProxy); Wed, 4 Feb 2004 08:48:59 +0400
+From: "Dimitry Sibiryakov" <SD@topol.udm.net>
+Organization: TD "VZ"
+To: cat-galaxy@gesserit.net
+Date: Wed, 04 Feb 2004 08:48:52 +0300
+MIME-Version: 1.0
+Subject: Re: GalaxyNG bug fix help
+Reply-to: SD@topol.udm.net
+Message-ID: <4020B1F4.9224.35D4E74@localhost>
+Priority: normal
+In-reply-to: <E1Anryq-0008Rh-00@sc8-sf-web3.sourceforge.net>
+X-mailer: Pegasus Mail for Windows (v4.12a)
+Content-type: text/plain; charset=koi8-r
+Content-transfer-encoding: 8BIT
+Content-description: Mail message body
+
+
+>Can you resend the sample message to me at cat-galaxy@gesserit.net ?  Mail
+>that passes through SourceForge is modified by their spam filters and
+>comes out with plain ASCII only.
+
+  Sure.
+
+On 2 Feb 2004 at 20:16, Chris Shaffer wrote:
+
+>I'm writing about the "server spoil mail" bug you reported 
+>for GalaxyNG.
+>
+>Are you playing in any of the games I'm running at Nine 
+>Lives?
+
+  No, but I'm enrolled for Standard game.
+
+>http://galaxy.gesserit.net/
+>
+>If so, could you try sending a relay with 
+>"Content-Transfer-Encoding" and "Content-Type...charset" 
+>in the message so we can see if we've fixed the bug?
+>
+>If you're not playing in a game, I could set up a fake 
+>game so we could test it.  Let me know.
+
+  You could use this message as a sample, forward it as a relay 
+through your server and see results (if your mailer keeps forwarded 
+headers, of course).
+
+---- Some russian text for headers development -------
+Это просто тест прохождения non-ascii текста сквозь GalaxyNG сервер.
+------------------------------------------------------
+
+   SY, Dimitry Sibiryakov.
+
+

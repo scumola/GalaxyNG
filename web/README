@@ -1,0 +1,19 @@
+There are a few things that you need to do in order to get the web
+interface working correctly.
+
+Your web server needs to be configured to process .php files with PHP (most web servers have this turned on already).
+
+You need to change the path to your galaxyng directory in the file "env.php" -- e.g. /home/NineLives/Games
+
+Your web server needs read permissions for this file for each game:
+	$GALAXYNGHOME/data/<gamename>/next_turn
+
+Your web server needs read/write permissions for this directory and all its subdirectories:
+	$GALAXYNGHOME/orders
+
+Your web server needs read/write permissions for this file:
+	$GALAXYNGHOME/log/orders_processed.txt
+	
+If you have full logging turned on, your web server might need read/write permissions for these directory and all their subdirectories:
+	$GALAXYNGHOME/statistics
+	$GALAXYNGHOME/forecasts

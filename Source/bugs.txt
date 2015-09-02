@@ -1,0 +1,136 @@
+o Use of   #define   getLine(f) fgets(lineBuffer, LINE_BUFFER_SIZE, f)
+o Use of LineBuffer all throughout the code.
+o Use of fopen, Fopen instead of GOS_fopen()
+
+=======================================================================
+
+"galaxyng -mail0" results in a segmentation fault, cause no game
+name is specified....  should check on number of arguments.
+
+
+======================================================================
+
+Advance Orders:
+
+Return-Path: <bob@carrera.sd.inri.com>
+X-Sender: bob@carrera.sd.inri.com
+Date: Thu, 16 Apr 1998 09:20:24 -0700
+To: fslothouber@acm.org
+Subject: Galaxy 'bug' - name changes and early orders
+
+Hi,
+        I found a peculiar bug - the kind I'm best at.  Here is
+the activity - and the Galaxy system's action is understandable,
+but is there a better way - or warning that should be given.
+
+Received turn 0 -- as Nation_4
+Send turn 1 orders as Nation_4
+        plan to change race name (Ghost) and password
+Send turn 2 orders early as Ghost - rejected - Ghost doesn't exist
+Send turn 2 orders early as Nation_4 - accepted
+        >O wise leader your orders for turn 2 have been received and stored
+Turn 1 ran - turn 1 orders processed
+Turn 2 ran - turn 2 orders not processed
+        >*** NOTE: You didn't send orders this turn.  You have 2 more turn(s) to
+        >*** remain idle before you forfeit your position.
+
+I am sure this is because Nation_4 (original submitter) underwent a name
+change.
+But, this did hurt my plans;  but, I should have known better.  Is there a way
+to deal with a name change on early orders?  Should a warning notice be posted
+in the first several game turns about this dilemma?
+
+Thanks,
+
+Bob (aka Ghost in game Photon)
+ 
+============================================================================
+============================================================================
+
+Return-Path: <blay@cclib.nsu.ru>
+Date:   Tue, 8 Sep 1998 16:49:39 +0700 (NOVST)
+X-Sender: blay@glory.nsu.ru
+To: Frans Gumpu Slothouber <gumpu@Wit393403.student.utwente.nl>
+Subject: turn forecast waiting
+
+Hi!
+Now a have to rule 2 races in testzone, Hanoriks and Nation_28
+I sent orders for both races at the same time, but now got forecast only
+for Hanoriks. After 0.5 hour I repeat mail for Nation_28 - no result :(
+How it could be? :(
+There only 3 houres until maketurn, and a dont want to "sleep" :(
+
+
+Blay
+
+
+========================================================================
+========================================================================
+Hi,
+
+I just noticed what seems to be a bug (I saw it in Testzone, though
+it might be present in other games too).
+On turn 12, I erroneously sent an X command (scrap a ship in GNG,
+it's an Upgrade command in G+ ;) ) I noticed only now that the ship has
+disappeared :(((
+
+However, in the order the corresponding lines looked like 
+
+> L 89 COL
+> X 89 ALL
+
+And the rules say that 
+
+> Scraps old spacecraft. The ships are converted into raw materials 
+> which are deposited on the planet where the group is located (must 
+> be at a planet, not in hyperspace). Any cargo the ships were carrying 
+> is unloaded first. The command will not work if the ships are carrying
+> colonists or are over an alien planet. 
+
+So, the ship carried colonists and imho should not have been scrapped :))
+
+SY, Andrew
+
+=========================================================================
+=========================================================================
+
+> Hoi,
+> 
+> > ORders-
+> > 
+> > > b 184 f 
+> > > s f 56
+> 
+> [snip]
+> 
+> According to the manual that should be:
+> 
+>   b 184 FLEET 
+>   s f 56
+> 
+> the second parameter is not the fleet name
+> but the word 'fleet'
+
+Hmm. OK, why no error that the F wasn't understood then? (:-)
+These orders were "OK":
+b 184 f
+b 183 f
+b 185 f
+b 186 f
+s 183 56
+s 185 56
+s 186 56
+
+[I'm guessing the S commands overrode the bad B commands]
+
+===============================================================
+===================================================================
+
+
+o The distribution does not have the index.html file in
+the main directory.
+
+
+
+
+

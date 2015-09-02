@@ -1,0 +1,203 @@
+# $Id: UPGRADE,v 1.9 2005/01/23 15:03:43 christhecat Exp $
+
+How to upgrade your existing games:
+
+==== UPGRADE To release-6.4.8 ===============
+
+If you want to allow submission of orders and report
+requests using web forms, see NG/web/README.
+
+There is a new Pax Galactica option for game creation.
+Details are in the .glx file created using the -template
+command.
+
+Graphical maps are turned on by default now.  If you do
+not want them, edit NG/Source/Makefile.  The relevant
+section is documented near the top of the file.
+
+IMPORTANT: The format of the .glx files has changed.
+You may specify the exact coordinates of each homeworld,
+if desired.  This has caused a change in the .glx file
+format for players.  The ARE has been updated to reflect
+this change.  You should update your ARE and any scripts
+you use to add players to games.  The new format is:
+  start_player
+  email someone@somewhere.com
+  homeworld 1000 42 75
+  end_player
+
+==== UPGRADE To release-6.4.6 ===============
+
+If you want the graphical maps, edit
+NG/Source/makefile
+
+cd NG; make; make install
+This will create the following files in Games/
+run_game.new, are.new, galaxyng.new, procmailrc.new,
+and .galaxyngrc.new
+
+Carefully review run_game.new, procmailrc.new and
+.galaxyngrc.new, all of which have changed significantly.  
+
+Note that old template files (.glx) will not work with the
+new galaxyng unless you change "nation" to "race".
+
+==== UPGRADE To release-6.4.2 ================
+
+Compile galaxyng and copy it to your Games/ directory.  You
+may want to review NG/.galaxyngrc and NG/procmailrc which have
+been updated and are better documented.  If you are running a
+mirror of the GalaxyNG web site, you should copy the contents
+of NG/Doc to your web site and verify that base_url.txt is
+still correct.
+
+==== UPGRADE To release-6.4.0 ================
+
+The entire GalaxyNG web site has been rewritten.  You have two
+options:
+
+1) Link to GalaxyNG SourceForge.net site (preferred)
+   Delete most of your local site and point to files on:
+     http://galaxyng.sourceforge.net/
+
+2) Maintain a mirror of the GalaxyNG SourceForge.net site
+   Delete most of your local site.  Copy the files in /Doc/
+   into your local site.  Edit base_url.txt to set the
+   base URL of your site.
+
+==== UPGRADE To release-6.1a =================
+
+Just compile galaxyng and copy it to your Games/ directory. If you
+don't want the graphical map then this release is not required as 
+there are no other changes.
+
+==== UPGRADE To release-6.1 =================
+
+==== UPGRADE To release-6.0 =================
+
+==== UPGRADE To release-5-1  =================
+
+The turn data files are not compatible!!
+
+=== UPGRADE To release-5-0g  =================
+
+The .galaxyngrc file changed, both the command to zip a file as well
+as to mime encode it has been changed.   Best is to do a make install
+under some other account and copy the .galaxyngrc file that is created
+during the install.
+
+
+You can also create it by hand, mine looks like this:
+
+# cat $HOME/Games/.galaxyngrc
+
+sendmail {/usr/sbin/sendmail -t }
+GMemail gumpu@localhost
+encode {/usr/bin/mmencode }
+compress { /usr/bin/zip }
+savereportcopy
+
+
+
+==== UPGRADE To release-5-0  =================
+
+Just compile galaxyng and copy it to your Games/ directory.
+
+==== UPGRADE To release-4-4a =================
+
+Just compile galaxyng and copy it to your Games/ directory.
+
+==== UPGRADE To release-4-4 =================
+
+Just compile galaxyng and copy it to your Games/ directory.
+
+==== UPGRADE To release-4-3a =================
+
+Just compile galaxyng and copy it to your Games/ directory.
+
+==== UPGRADE To release-4-3 =================
+
+Just compile galaxyng and copy it to your Games/ directory.
+
+==== UPGRADE To release-4-2 =================
+
+Just compile galaxyng and copy it to your Games/ directory.
+
+==== UPGRADE To release-4-1 =================
+
+Just compile galaxyng and copy it to your Games/ directory.
+
+==== UPGRADE TO release-4-0 =================
+
+**** FILES THAT ARE OBSOLETE ****
+
+The following files can be removed:
+o Games/mail_report           ; The engine directly sends the reports.
+o Games/check_orders          ; Orders are read from stdin.
+o Games/send_<game name>.sh   ; The engine directly sends the reports.
+
+
+**** FILES THAT CHANGED ****
+
+You will have to edit the following files, or use the copy
+created my "make install"
+
+o .procmailrc
+  The rule for auto checking of orders changed from
+
+    :0 rw :turno
+    * ^Subject:.*Order
+    |/usr/bin/formail -rkbt -s /home/galaxy/Games/check_orders
+
+  to
+
+    :0 rw :turno
+    * ^Subject:.*Order
+    |/usr/bin/formail -rkbt -s /home/galaxy/Games/galaxyng -check
+
+  A special line is now needed for "report copy" requests
+
+    :0 rw :turno
+    * ^Subject:.*Report
+    |/usr/bin/formail -rkbt -s /home/galaxy/Games/galaxyng -check
+
+  If you want to allow message relaying between players add,
+
+    :0 rw :turno
+    * ^Subject:.*Relay
+    |/usr/bin/formail -rkbt -s /home/galaxy/Games/galaxyng -relay
+
+  Best is to copy these lines from the procmailrci.new file generated
+  by "make install", you might also want to add the additonal rules
+  to prevent mail loops.
+
+  You probably also want to update your global.bulletin,
+  and example can be found in the Doc/ directory.
+  
+o Games/run_game
+
+  Now takes an optional additional parameter to specify what turn
+  is to be run.  You can copy the run_game.new file generated
+  by "make install" over your old run_game file.
+
+
+***** NEW FILES ********
+
+o Games/.galaxyngrc
+
+  This file is essential, games will not run without it.
+  It should contains atleast the following two parameters:
+
+    sendmail {/usr/sbin/sendmail -t }    ; the correct path to sendmail
+    GMemail you@youraddress              ; your email address
+ 
+  If you allow compressed reports add:
+
+    mutt /usr/local/bin/mutt             ; this is optional
+    encode {/usr/bin/uuencode test }
+    compress { /bin/gzip  -c }
+
+  "make install" will create a one for you.
+
+
+Please also read the server manual.

@@ -1,0 +1,92 @@
+
+GALAXY=$BASE/galaxyng
+GAME=$1
+
+# Script
+cd $BASE
+
+if { test -z $2; } then {
+
+        #
+        # Determine current turn number from next_turn
+        #
+        TURN=`cat data/$1/next_turn`
+
+        } else {
+
+        #
+        # We land here in case of a re-run of a turn. Set the turn
+        # number to the second parameter.
+        #
+        TURN=$2
+
+}
+fi
+
+if { ! test -e orders/$GAME/$TURN.all; } then {
+
+	# 
+	# If the #.all file doesn't exist, create it.
+	# Copy the orders of all nations into a single file.
+	#
+	cat orders/$GAME/*.$TURN > orders/$GAME/$TURN.all
+	
+	# Clean-up: 
+	# Since all individual order sets for each nation have been copied
+	# to $TURN.all  we can remove them.
+	#
+	rm -f orders/$GAME/*.$TURN
+}
+fi
+
+#
+# Delete the old turn reports
+#
+
+rm reports/$GAME/*.txt
+
+#
+# Run turn and email turn reports.
+#
+
+$GALAXY -run $GAME orders/$GAME/$TURN.all $TURN
+
+#
+# Create the web directory if necessary
+#
+
+if { test ! -d $WWWHOME/$GAME/ ; } then { mkdir $WWWHOME/$GAME/ ; } fi
+
+#
+# Create the influence map and move it to the web directory.
+# Uncomment the following lines if you want to create a public
+# influence map.
+#
+
+#$GALAXY -influence $GAME public $TURN
+#mv data/$GAME/public_$TURN.png $WWWHOME/$GAME/
+
+#
+# Create the high score list in HTML and copy it to the web directory.
+#
+
+$GALAXY -score $GAME  > $WWWHOME/$GAME/score.html 
+
+#
+# Alternatively, uncomment the following lines to copy the plain text
+# high score list to the web directory.
+#
+
+#cp notices/$GAME.score $WWWHOME/$GAME/score$TURN.txt
+#chmod a+r $WWWHOME/$GAME/score$TURN.txt
+
+#
+# Copy the next_turn file to the web directory so it can be used by the
+# web server to determine the current turn number
+#
+
+cp data/$GAME/next_turn $WWWHOME/$GAME/
+
+#
+# Done. 
+#

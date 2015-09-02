@@ -1,0 +1,110 @@
+# set index.php as primary home page when available
+DirectoryIndex index.php index.html index.htm index.cgi
+
+# redirect old links on galaxyng.sourceforge.net
+Redirect permanent /gpl.txt http://www.gnu.org/copyleft/gpl.html
+Redirect permanent /daily8/allfiles.tgz http://galaxyng.sourceforge.net/guides/daily8.tgz
+Redirect permanent /daily8/allfiles.zip http://galaxyng.sourceforge.net/guides/daily8.tgz
+Redirect permanent /daily8/ http://galaxyng.sourceforge.net/guides/
+Redirect permanent /turns.php http://galaxyng.sourceforge.net/guides/
+Redirect permanent /etiquette.php http://galaxyng.sourceforge.net/guides/etiquette.php
+
+# new hall of fame
+Redirect permanent /hall.php http://galaxyng.sourceforge.net/hall/
+
+# redirect old links on galaxyng.com
+Redirect permanent /index.htm http://galaxyng.sourceforge.net/
+Redirect permanent /index.html http://galaxyng.sourceforge.net/
+Redirect permanent /index2.html http://galaxyng.sourceforge.net/
+Redirect permanent /games.html http://galaxyng.sourceforge.net/
+Redirect permanent /intro.html http://galaxyng.sourceforge.net/start.php
+Redirect permanent /start.html http://galaxyng.sourceforge.net/start.php
+Redirect permanent /beginner.htm http://galaxyng.sourceforge.net/start.php
+Redirect permanent /houserules.htm http://galaxyng.sourceforge.net/
+Redirect permanent /ng.html http://galaxyng.sourceforge.net/whyng.php
+Redirect permanent /news.html http://galaxyng.sourceforge.net/
+Redirect permanent /download.html http://galaxyng.sourceforge.net/
+Redirect permanent /NonM4/FAQ.html http://galaxyng.sourceforge.net/faq.php
+Redirect permanent /FAQ.html http://galaxyng.sourceforge.net/faq.php
+Redirect permanent /NonM4/RefManual.html http://galaxyng.sourceforge.net/quickref.php
+Redirect permanent /RefManual.html http://galaxyng.sourceforge.net/quickref.php
+Redirect permanent /NonM4/ManGalaxyNG.html http://galaxyng.sourceforge.net/manual.php
+Redirect permanent /ManGalaxyNG.html http://galaxyng.sourceforge.net/manual.php
+Redirect permanent /example.html http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/chaos0.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/chaos61.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Dead3.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Dead20.zip http://galaxyng.sourceforge.net/turns.php 
+Redirect permanent /Examples/Dead51.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Clash10.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Clash11.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Clash12.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Clash13.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Clash14.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Clash15.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Clash34.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Clash35.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Clash36.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Clash37.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Clash38.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Clash39.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Clash53.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Clash54.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Clash55.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Clash56.zip http://galaxyng.sourceforge.net/turns.php
+Redirect permanent /Examples/Clash57.zip http://galaxyng.sourceforge.net/turns.php   
+Redirect permanent /hosting.html http://galaxyng.sourceforge.net/server.php
+Redirect permanent /NonM4/server.html http://galaxyng.sourceforge.net/server.php
+Redirect permanent /server.html http://galaxyng.sourceforge.net/server.php
+Redirect permanent /Hall/index.html http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Hall/hall.html http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Hall/games.html http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Hall/players.html http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Hall/galaxybase http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Hall/HallOfFame.c http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Hall/Tiger/index.html http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Hall/Tiger/players.html http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Hall/Tiger/hitlist.html http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Hall/Tiger/map.gif http://galaxyng.sourceforge.net/hall/
+Redirect permanent /join.html http://galaxyng.sourceforge.net/
+Redirect permanent /mailing.html http://lists.sourceforge.net/lists/listinfo/galaxyng-players 
+Redirect permanent /links.html http://galaxyng.sourceforge.net/links.php
+Redirect permanent /Archive/SlowGame3.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Archive/SmallDaily3.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Archive/BloodMatch1.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Archive/SlowGame.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Archive/Daily7.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Archive/Star3.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Archive/Weird3.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Archive/SmallGame13.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Archive/SmallGame21.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Archive/Huge3.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Archive/Newbie4.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Archive/Huge2.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Archive/Daily1.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Archive/Lilliput.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Archive/Star4.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Archive/BigDrive1.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Archive/SmallGame19.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Archive/SmallGame9.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Archive/SmallGame20.htm http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Hall/ http://galaxyng.sourceforge.net/hall/
+Redirect permanent /Download/methods.ps http://galaxyng.sourceforge.net/
+Redirect permanent /tips.htm http://galaxyng.sourceforge.net/
+
+# redirecting tools links - this will need to point at our tools pages when available
+Redirect permanent /Tools/tools.html http://galaxyview.sourceforge.net/tools.html
+Redirect permanent /Tools/dist.html http://galaxyview.sourceforge.net/tools.html
+Redirect permanent /Tools/planets.html http://galaxyview.sourceforge.net/tools.html
+Redirect permanent /Tools/shipyard.html http://galaxyview.sourceforge.net/tools.html
+Redirect permanent /Tools/tools/gtv4_3.zip http://galaxyview.sourceforge.net/tools.html
+Redirect permanent /Tools/tools/goggle2.6.tar.gz http://galaxyview.sourceforge.net/tools.html
+Redirect permanent /Tools/wopr.html http://galaxyview.sourceforge.net/tools.html
+Redirect permanent /Tools/tools/batsim32.zip http://galaxyview.sourceforge.net/tools.html
+Redirect permanent /Download/WOPR.tar.gz http://galaxyview.sourceforge.net/tools.html
+Redirect permanent /Download/WOPR.zip http://galaxyview.sourceforge.net/tools.html
+Redirect permanent /Download/Dist.tar.gz http://galaxyview.sourceforge.net/tools.html
+Redirect permanent /Download/Dist.zip http://galaxyview.sourceforge.net/tools.html   
+Redirect permanent /Download/Planets.tar.gz http://galaxyview.sourceforge.net/tools.html
+Redirect permanent /Download/Planets.zip http://galaxyview.sourceforge.net/tools.html   
+

@@ -1,0 +1,83 @@
+# $Id: INSTALL,v 1.12 2005/01/23 14:54:54 madcoder42 Exp $
+
+See also the installation information in the Server Manual
+at http://galaxyng.sourceforge.net/server.php .
+
+WEB SITE
+----------------------------------------
+
+You have two options:
+
+1) Link to GalaxyNG SourceForge.net site (preferred)
+     Point to files on: http://galaxyng.sourceforge.net/
+
+2) Maintain a mirror of the GalaxyNG SourceForge.net site
+     Copy the files in /Doc/ into your local site and 
+     change /Doc/base_url.txt to the base URL of your site.
+     (THIS OPTION IS NOT RECOMMENDED)
+
+GRAPHICAL MAP
+----------------------------------------
+
+To disable the the galaxy map graphic option, edit Source/makefile and
+follow the directions there.
+
+If you want graphical maps, you will also need to have installed
+libgd.a (http://www.boutell.com/gd/), libpng, libz, libjpeg, and
+libfreetype (these dependencies are explained on the libgd page.)
+
+This option uses the GD library, see COPYING_GD for details.
+This option also uses a free truetype font from Larabie Fonts
+(http://larabiefonts.com).
+
+Note that the graphical map is a beta product.  For assistance, contact:
+
+(Ken Weinert madcoder42@users.sourceforge.net)
+
+
+SERVER INSTALL
+----------------------------------------
+
+To install the GalaxyNG server use:
+
+  make
+  make install
+
+or just
+
+  make install
+
+The install script will create all files necessary to run a game on
+your machine. All files will be installed in the directory
+$HOME/Games.
+
+The installer will ask you for your email address. It might also ask
+you for the location of the sendmail command if it can not find it.
+
+If you want to enable web score lists, make sure you have a
+$(HOME)/public_html or $(HOME)/www directory before you start
+installing. (Or edit Games/run_game afterwards.)
+
+Much more information can be found in the server manual.  Visit
+  http://galaxyng.sourceforge.net/server.php
+or review NG/Doc/server.php.
+
+After installation you might want to:
+
+(1) edit and copy the procmailrc file to enable automatic
+    checking of orders; Copy it to $(HOME)/.procmailrc,
+(2) edit the games.crontab file and run crontab to enable automatic 
+    running of games
+
+SUPPORT
+----------------------------------------
+
+If you have any questions, ask on the galaxyng-developers list:
+  http://lists.sourceforge.net/lists/listinfo/galaxyng-developers
+or submit a support request:
+  http://sourceforge.net/tracker/?group_id=48224&atid=454548
+
+
+HAVE FUN!
+----------------------------------------
+

@@ -1,0 +1,60 @@
+
+
+.SUFFIXES :
+.SUFFIXES : .obj .c
+.c.obj:
+	$(CC) $(CFLAGS) -c $<
+
+CFLAGS     = -c -I. -nologo -Zi -W3 -DWIN32 -DFS_NEW_FORECAST
+
+CLINK      = link
+CLINKFLAGS = /nologo /debug
+
+SOURCES=loadgame.c savegame.c create.c phase.c battle.c process.c \
+        report.c util.c list.c selftest.c report_xml.c mail.c \
+        report_m.c galaxyng.c wopr.c globals.c avl.c usage.c
+
+OBJECTS=$(SOURCES:.c=.obj)
+
+GALAXYNG=galaxyng
+WOPR=wopr
+
+all: $(GALAXYNG) $(WOPR)
+
+
+galaxyng: $(OBJECTS)
+	$(CLINK) $(CLINKFLAGS) $(OBJECTS) /out:galaxyng.exe
+
+clean:
+	-del $(OBJECTS)
+
+# DO NOT DELETE
+
+loadgame.o: loadgame.h galaxy.h list.h util.h
+savegame.o: savegame.h galaxy.h list.h util.h
+create.o: create.h galaxy.h list.h util.h report.h loadgame.h mail.h
+create.o: report_m.h report_xml.h savegame.h process.h phase.h battle.h
+create.o: selftest.h
+phase.o: galaxy.h list.h util.h phase.h loadgame.h savegame.h
+battle.o: battle.h galaxy.h list.h util.h
+process.o: process.h galaxy.h list.h util.h savegame.h loadgame.h phase.h
+process.o: battle.h report.h mail.h report_m.h report_xml.h selftest.h
+report.o: report.h galaxy.h loadgame.h list.h util.h mail.h report_m.h
+report.o: report_xml.h
+util.o: util.h galaxy.h list.h loadgame.h
+list.o: list.h util.h galaxy.h
+selftest.o: selftest.h galaxy.h util.h list.h create.h process.h savegame.h
+selftest.o: loadgame.h phase.h battle.h report.h mail.h report_m.h
+selftest.o: report_xml.h
+report_xml.o: report_xml.h galaxy.h report.h loadgame.h list.h util.h mail.h
+report_xml.o: report_m.h
+mail.o: mail.h galaxy.h util.h list.h
+report_m.o: report_m.h galaxy.h list.h util.h report.h loadgame.h mail.h
+report_m.o: report_xml.h
+galaxyng.o: galaxy.h util.h list.h process.h savegame.h loadgame.h phase.h
+galaxyng.o: battle.h report.h mail.h report_m.h report_xml.h selftest.h
+galaxyng.o: create.h
+wopr.o: galaxy.h util.h list.h process.h savegame.h loadgame.h phase.h
+wopr.o: battle.h report.h mail.h report_m.h report_xml.h selftest.h create.h
+wopr.o: wopr.h
+globals.o: galaxy.h
